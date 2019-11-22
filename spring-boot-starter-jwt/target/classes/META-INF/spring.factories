@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.nwidart.springbootstarterjwt.entity.User,\
+  com.nwidart.springbootstarterjwt.TestClass,\
+  com.nwidart.springbootstarterjwt.configuration.SecurityConfig,\
+  com.nwidart.springbootstarterjwt.configuration.properties.JwtStarterProperties
