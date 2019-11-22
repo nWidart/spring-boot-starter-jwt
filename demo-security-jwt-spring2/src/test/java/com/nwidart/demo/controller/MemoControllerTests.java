@@ -1,10 +1,21 @@
 package com.nwidart.demo.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nwidart.demo.entity.Memo;
 import com.nwidart.demo.service.MemoService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nwidart.springbootstarterjwt.configuration.SecurityConfig;
+import com.nwidart.springbootstarterjwt.configuration.properties.JwtStarterProperties;
 import com.nwidart.springbootstarterjwt.repository.UserRepository;
+import java.nio.charset.Charset;
+import java.time.LocalDateTime;
+import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -20,20 +31,9 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.nio.charset.Charset;
-import java.time.LocalDateTime;
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyLong;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = MemoController.class)
-@Import(SecurityConfig.class)
+@Import({SecurityConfig.class, JwtStarterProperties.class})
 public class MemoControllerTests {
 
     @Autowired

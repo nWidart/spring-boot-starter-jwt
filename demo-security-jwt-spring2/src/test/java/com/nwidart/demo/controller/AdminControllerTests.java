@@ -1,11 +1,21 @@
 package com.nwidart.demo.controller;
 
-import com.nwidart.springbootstarterjwt.configuration.SecurityConfig;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nwidart.springbootstarterjwt.configuration.SecurityConfig;
+import com.nwidart.springbootstarterjwt.configuration.properties.JwtStarterProperties;
 import com.nwidart.springbootstarterjwt.entity.User;
 import com.nwidart.springbootstarterjwt.repository.UserRepository;
 import com.nwidart.springbootstarterjwt.security.SimpleLoginUser;
 import com.nwidart.springbootstarterjwt.service.UserService;
+import java.nio.charset.Charset;
+import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -20,19 +30,9 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.nio.charset.Charset;
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(value = AdminController.class)
-@Import(value = {SecurityConfig.class})
+@Import(value = {SecurityConfig.class, JwtStarterProperties.class})
 public class AdminControllerTests {
 
     @Autowired
