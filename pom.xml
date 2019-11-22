@@ -26,12 +26,4 @@
     <module>demo-security-jwt-spring2</module>
     <module>spring-boot-starter-jwt</module>
   </modules>
-
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub OWNER Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/nwidart/spring-boot-starter-jwt</url>
-    </repository>
-  </distributionManagement>
 </project>
