@@ -1,4 +1,4 @@
-demo-security-jwt-spring2/target/
+target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
