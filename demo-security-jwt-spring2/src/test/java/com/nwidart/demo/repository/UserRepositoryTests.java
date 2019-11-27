@@ -1,8 +1,11 @@
 package com.nwidart.demo.repository;
 
-import com.nwidart.springbootstarterjwt.TestClass;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.nwidart.springbootstarterjwt.StarterJwtAutoConfiguration;
 import com.nwidart.springbootstarterjwt.entity.User;
 import com.nwidart.springbootstarterjwt.repository.UserRepository;
+import java.util.Optional;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +14,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.assertThat;
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Import(TestClass.class)
+@Import(StarterJwtAutoConfiguration.class)
 public class UserRepositoryTests {
     @Autowired
     private TestEntityManager testEntityManager;

@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.context.annotation.Bean;
 
 @AutoConfigurationPackage
-public class TestClass {
+public class StarterJwtAutoConfiguration {
 
   @Bean
   public UserService userService(UserRepository userRepository) {
