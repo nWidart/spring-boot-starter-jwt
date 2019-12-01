@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "**")
                     .permitAll()
-                .mvcMatchers("/hello/**", "/authenticate")
+                .mvcMatchers("/hello/**", "/authenticate", "/verify")
                     .permitAll()
                 .mvcMatchers("/user/**")
                     .hasRole("USER")

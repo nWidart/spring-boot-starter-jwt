@@ -1,7 +1,9 @@
 package com.nwidart.springbootstarterjwt.security;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import java.util.Date;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -32,5 +34,10 @@ public class TokenService {
         .sign(this.algorithm);
     log.debug("generate token : {}", token);
     return token;
+  }
+
+  public DecodedJWT verifyToken(String token) {
+    JWTVerifier verifier = JWT.require(algorithm).build();
+    return verifier.verify(token);
   }
 }
